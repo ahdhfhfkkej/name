@@ -1,0 +1,14 @@
+# Render Blueprint용. 비용/요금제는 배포 전에 Render 화면에서 확인하세요.
+services:
+  - type: web
+    name: personal-call-appointments
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PHONE_ACCESS_TOKEN
+        generateValue: true
